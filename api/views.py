@@ -48,7 +48,7 @@ def predict_image_from_path(path):
 
 def find_photos(category, num):
     paths = []
-    crawl = GoogleImageCrawler(storage={'root_dir': f'../mediafiles/images/{category}'})
+    crawl = GoogleImageCrawler(storage={'root_dir': f'./mediafiles/images/{category}'})
     crawl.crawl(keyword=category, max_num=num, filters={'type':"photo"})
     # paths = [f'mediafiles/images/{category}/{f"{i + "0" * }"}' for i in range(0, num + 1)]
     for i in range(1, num + 1):
@@ -62,10 +62,13 @@ def find_photos(category, num):
 @api_view(['POST'])
 def start_neuron(request):
     if request.method == "POST":
-        image_path = "../mediafiles/images/tests"
+        image_path = "./mediafiles/images/tests"
         answer_dict = {}
+
+        print(os.listdir(image_path))
+
         for filename in os.listdir(image_path):
-            if ".jpg" in filename.lower():
+            if ".png" in filename.lower():
                 labels = predict_image_from_path(os.path.join(image_path, filename))
                 answer_dict[host_url + '/media/images/tests/' + filename] = labels
         # print(answer_dict.values())
