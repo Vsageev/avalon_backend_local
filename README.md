@@ -1,9 +1,10 @@
 # Avanpost
 ---
-## Running
-###### Сначало загрузить зависимости ```pip install -r requirments.txt```, потом запустить сервер ```python manage.py runserver```
+
+Recomended Python version: 3.10.8
+
+run  ```pip install -r requirments.txt``` to install dependencies (recomended python version )
+
+run  ```python manage.py runserver``` to start backend
 ---
-## Structure
-###### start_neuron при помощи POST запроса запускает нейроную сеть, берет картинки из папки mediafiles/images/test
-###### save_photo при помощи POST запроса сохраняет фото в mediafiles/images/test при помощи запроса Get запроса получает все юрлы картинки  
-###### take_category при помощи POST запроса добавляет категорию, так же качает фото с гугл картинок и на них обучает новую моедль, и добавляет первую картинку к категории GET запрос, ты получаешь все картинки и название категорий к ним
+
